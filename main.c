@@ -7,6 +7,8 @@
 #include "src/standard_functions.h"
 #include "src/events.h"
 #include "src/gravity.h"
+#include "src/collision.h"
+
 
 short character_is_moving() {
     if (myDirection.up || myDirection.right || myDirection.left || myDirection.down) {
@@ -38,7 +40,7 @@ int main(int argc, char **argv) {
     SDL_Texture* tile = IMG_LoadTexture(app.renderer, "img/tile.png");
     initialize_map(tile);
     SDL_RenderPresent(app.renderer);
-    SDL_Rect position = {50,50,40,40};
+    SDL_Rect position = {500,50,40,40};
     Entity hero = {position, 5, 5, 0,
                    IMG_LoadTexture(app.renderer, "img/hero.png"), 0};
     SDL_Event event;
@@ -69,6 +71,7 @@ int main(int argc, char **argv) {
             //    distance = get_distance_from_down_platform(&hero);
             //}
             move_player(&hero);
+            collision_management(&hero);
             display_map_on_renderer(tile);
             SDL_RenderCopy(app.renderer, hero.texture, NULL, &hero.position);
             SDL_RenderPresent(app.renderer);

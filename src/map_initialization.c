@@ -15,7 +15,7 @@
 }*/
 
 void display_map_on_renderer(SDL_Texture* tile) {
-    SDL_Rect rect = {1, 1, TILE_SIZE, TILE_SIZE};
+    SDL_Rect rect = {0, 0, TILE_SIZE, TILE_SIZE};
     for (int i = 0; i < MAP_HEIGHT; ++i) {
         for (int j = 0; j < MAP_WIDTH; ++j) {
             if (stage.map[j][i]) {
@@ -23,7 +23,7 @@ void display_map_on_renderer(SDL_Texture* tile) {
             }
             rect.x += TILE_SIZE;
         }
-        rect.x = 1;
+        rect.x = 0;
         rect.y += TILE_SIZE;
     }
 }
