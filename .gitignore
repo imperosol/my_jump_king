@@ -1,2 +1,13 @@
 # Project exclude paths
 /cmake-build-debug/
+/cmake/
+/lib/
+/include/
+/bin/
+my_jump_king.cbp
+*.zip
+*.depend
+*.layout
+*.exe
+*.o
+/obj/
